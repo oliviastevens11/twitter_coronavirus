@@ -42,4 +42,4 @@ if args.input_path == 'reduced.country':
     plt.savefig('Chart of Country: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     plt.xlabel('Language')
-    plt.savefig('Chart of Language:' + args.key + '.png')
+    plt.savefig('2 Chart of Language:' + args.key + '.png')
