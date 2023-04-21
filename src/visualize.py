@@ -32,14 +32,14 @@ for k,v in items:
 items_sorted = sorted(items, key=lambda x: x[1], reverse=True)
 x_axis = [item[0] for item in items_sorted[:10]]
 y_axis = [item[1] for item in items_sorted[:10]]
-y_axis = sorted(y_axis, reverse=True)
+x_axis, y_axis = zip(*sorted(zip(x_axis, y_axis), key=lambda x: x[1], reverse=True))
 plt.bar(x_axis, y_axis)
 plt.title('Number of Times ' + args.key + ' Used')
 plt.xlabel(args.input_path)
 plt.ylabel('Count')
 if args.input_path == 'reduced.country':
     plt.xlabel('Country')
-    plt.savefig('2 Chart of Country: ' + args.key + '.png')
+    plt.savefig('Chart of Country: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     plt.xlabel('Language')
-    plt.savefig('2 Chart of Language:' + args.key + '.png')
+    plt.savefig('Chart of Language:' + args.key + '.png')
