@@ -29,10 +29,15 @@ for k,v in items:
     print(k,':',v)
 
 #print graphs of values
-x_axis = [item[0] for item in items[:9]]
-y_axis = [item[1] for item in items[:9]]
+x_axis = [item[0] for item in sorted(items[:9], key=lambda x: x[1])]
+y_axis = [item[1] for item in sorted(items[:9], key=lambda x: x[1])]
 plt.bar(x_axis, y_axis)
-plt.title('Count of the Number of Times Coronavirus is used')
-plt.xlabel('Language')
+plt.title('Number of Times Hastag' + args.key + 'Used')
+plt.xlabel(args.input_path)
 plt.ylabel('Count')
-plt.savefig('Corona.png')
+if args.input_path == 'reduced.country':
+    plt.xlabel('Country')
+    plt.savefig('Chart of Country: ' + args.key + '.png')
+if args.input_path == 'reduced.lang':
+    plt.xlabel('Language')
+    plt.savefig('Chart of Language:' + args.key + '.png')
