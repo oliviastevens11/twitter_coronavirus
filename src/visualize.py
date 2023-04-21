@@ -39,7 +39,7 @@ plt.xlabel(args.input_path)
 plt.ylabel('Count')
 if args.input_path == 'reduced.country':
     plt.xlabel('Country')
-    plt.savefig('Chart of Country: ' + args.key + '.png')
+    plt.savefig('2 Chart of Country: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     plt.xlabel('Language')
     plt.savefig('2 Chart of Language:' + args.key + '.png')
