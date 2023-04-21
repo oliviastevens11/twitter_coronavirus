@@ -29,10 +29,10 @@ for k,v in items:
     print(k,':',v)
 
 #print graphs of values
-x_axis = [item[0] for item in sorted(items[:9], key=lambda x: x[1])]
-y_axis = [item[1] for item in sorted(items[:9], key=lambda x: x[1])]
+x_axis = [item[0] for item in sorted(items[:9], key=lambda x: x[1], reverse = True)]
+y_axis = [item[1] for item in sorted(items[:9], key=lambda x: x[1], reverse = True)]
 plt.bar(x_axis, y_axis)
-plt.title('Number of Times Hastag' + args.key + 'Used')
+plt.title('Number of Times ' + args.key + ' Used')
 plt.xlabel(args.input_path)
 plt.ylabel('Count')
 if args.input_path == 'reduced.country':
