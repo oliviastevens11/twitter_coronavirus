@@ -2,6 +2,7 @@
 
 # command line args
 import matplotlib.pyplot as plt
+import pandas as pd
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--input_path',required=True)
@@ -30,17 +31,19 @@ for k,v in items:
 
 #print graphs of values
 items_sorted = sorted(items, key=lambda x: x[1], reverse=True)
-pairs = [(item[0], item[1]) for item in items_sorted]
-x_axis = [pair[0] for pair in pairs[:10]]
-y_axis = [pair[1] for pair in pairs[:10]]
-x_axis, y_axis = zip(*sorted(zip(x_axis, y_axis), key=lambda x: x[1], reverse=True))
-plt.bar(x_axis, y_axis)
-plt.title('Number of Times ' + args.key + ' Used')
-plt.xlabel(args.input_path)
-plt.ylabel('Count')
+x_axis = [item[0] for item in items_sorted[:10]]
+y_axis = [item[1] for item in items_sorted[:10]]
 if args.input_path == 'reduced.country':
+    data_frame = pd.DataFrame({"Coutry":x_axis,"Count":y_axis})
+    plt.bar(x_axis, y_axis, data=data_frame)
+    plt.title('Number of Times ' + args.key + ' Used')
+    plt.ylabel('Count')
     plt.xlabel('Country')
-    plt.savefig('test pt. 2 Chart of Country: ' + args.key + '.png')
+    plt.savefig('Using Pandas Chart of Country: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
+    data_frame = pd.DataFrame({"Language":x_axis,"Count":y_axis})
+    plt.bar(x_axis, y_axis, data=data_frame)
+    plt.title('Number of Times ' + args.key + ' Used')
+    plt.ylabel('Count')
     plt.xlabel('Language')
     plt.savefig('Chart of Language:' + args.key + '.png')
