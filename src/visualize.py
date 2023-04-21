@@ -35,7 +35,7 @@ x_axis = [item[0] for item in items_sorted[:10]]
 y_axis = [item[1] for item in items_sorted[:10]]
 if args.input_path == 'reduced.country':
     data_frame = pd.DataFrame({"Coutry":x_axis,"Count":y_axis})
-    df_sorted = df.sort_values('Count')
+    df_sorted = data_frame.sort_values('Count')
     plt.bar(x_axis, y_axis, data=df_sorted)
     plt.title('Number of Times ' + args.key + ' Used')
     plt.ylabel('Count')
