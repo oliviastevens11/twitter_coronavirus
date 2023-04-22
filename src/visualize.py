@@ -30,21 +30,18 @@ for k,v in items:
     print(k,':',v)
 
 #print graphs of values
-x_axis = [item[0] for item in items[:10]]
-y_axis = [item[1] for item in items[:10]]
+items_sorted = sorted(counts[args.key].items(), key=lambda item: item[1], reverse=True)
+top_10 = items_sorted[:10]
+x_axis = [item[0] for item in top_10]
+y_axis = [item[1] for item in top_10]
+print("x_axis=", x_axis)
+print("y_axis=", y_axis)
 if args.input_path == 'reduced.country':
-    '''
-    data_frame = pd.DataFrame({"Country":x_axis,"Count":y_axis})
-    print(data_frame)
-    df_sorted = data_frame.sort_values('Count', )
-    print(df_sorted)
-    plt.bar(x=df_sorted['Country'], height=df_sorted['Count'])
-    '''
-    plt.barh(x_axis, y_axis)
+    plt.bar(x_axis, y_axis)
     plt.title('Number of Times ' + args.key + ' Used')
     plt.ylabel('Count')
     plt.xlabel('Country')
-    plt.savefig('Chart of Country: ' + args.key + '.png')
+    plt.savefig('Chart 2 of Country: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     data_frame = pd.DataFrame({"Language":x_axis,"Count":y_axis})
     df_sorted = data_frame.sort_values('Count')
