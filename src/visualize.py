@@ -32,8 +32,8 @@ for k,v in items:
 #print graphs of values
 items_sorted = sorted(counts[args.key].items(), key=lambda item: item[1], reverse=True)
 top_10 = items_sorted[:10]
-x_axis = [item[0] for item in top_10]
-y_axis = [item[1] for item in top_10]
+x_axis = [item[1] for item in top_10]
+y_axis = [item[0] for item in top_10]
 fig, ax = plt.subplots()
 ax.bar(x_axis, y_axis)
 
@@ -43,7 +43,8 @@ ax.set_ylabel('Count')
 ax.set_xlabel('Country')
 
 # save the plot to a file
-plt.savefig('Chart 23 of Country: ' + args.key + '.png')
+plt.savefig('Chart 123 of Country: ' + args.key + '.png')
+
 '''
 if args.input_path == 'reduced.country':
     df = pd.DataFrame(top_10, columns=['Country', 'Count'])
