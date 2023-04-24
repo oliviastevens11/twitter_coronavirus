@@ -39,11 +39,14 @@ if args.input_path == 'reduced.country':
     x_axis2 = range(len(x_axis))
     #data_frame = pd.DataFrame({"Country":x_axis,"Count":y_axis})
     #df_sorted = data_frame.sort_values('Count')
+    
     plt.bar(x_axis2, y_axis)
+    plt.xticks(x_axis2, x_axis)
+
     plt.title('Number of Times ' + args.key + ' Used')
     plt.ylabel('Count')
     plt.xlabel('Country')
-    plt.savefig('Chart of Country 56798: ' + args.key + '.png')
+    plt.savefig('Chart of Country 456798: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     data_frame = pd.DataFrame({"Language":x_axis,"Count":y_axis})
     df_sorted = data_frame.sort_values('Count')
