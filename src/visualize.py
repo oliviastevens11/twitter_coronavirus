@@ -32,37 +32,24 @@ for k,v in items:
 #print graphs of values
 items_sorted = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
 top_10 = items_sorted[:10]
-print(top_10)
 x_axis = [item[0] for item in top_10]
 y_axis = [item[1] for item in top_10]
-print("x_axis=", x_axis)
-print("y_axis=", y_axis)
-fig, ax = plt.subplots()
-ax.bar(x_axis, y_axis)
 
-# set plot title and axis labels
-ax.set_title('Number of Times ' + args.key + ' Used')
-ax.set_ylabel('Counts')
-ax.set_xlabel('Countries')
-
-# save the plot to a file
-plt.savefig('Chart 123456 of Country: ' + args.key + '.png')
-
-'''
 if args.input_path == 'reduced.country':
-    df = pd.DataFrame(top_10, columns=['Country', 'Count'])
-    sns.barplot(x='Country', y='Count', data=df, order=df.sort_values('Count')['Country'])
-    #plt.bar(x_axis, y_axis)
+    x_axis2 = range(len(x_axis))
+    #data_frame = pd.DataFrame({"Country":x_axis,"Count":y_axis})
+    #df_sorted = data_frame.sort_values('Count')
+    plt.bar(x_axis2, y_axis)
     plt.title('Number of Times ' + args.key + ' Used')
     plt.ylabel('Count')
     plt.xlabel('Country')
-    plt.savefig('Chart 22 of Country: ' + args.key + '.png')
+    plt.savefig('Chart of Country 56798: ' + args.key + '.png')
 if args.input_path == 'reduced.lang':
     data_frame = pd.DataFrame({"Language":x_axis,"Count":y_axis})
     df_sorted = data_frame.sort_values('Count')
+    plt.figure()
     plt.bar(df_sorted['Country'], df_sorted['Count'])
     plt.title('Number of Times ' + args.key + ' Used')
     plt.ylabel('Count')
     plt.xlabel('Language')
     plt.savefig('Chart of Language:' + args.key + '.png')
-'''

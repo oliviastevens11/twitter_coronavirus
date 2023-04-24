@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+import time
+import matplotlib.pyplot as plt
+fig = plt.figure()
+plt.bar([s, n, m, p], [9,3,4,7,1,8])
+plt.savefig('test graph.png')
