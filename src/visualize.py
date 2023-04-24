@@ -42,11 +42,11 @@ ax.bar(x_axis, y_axis)
 
 # set plot title and axis labels
 ax.set_title('Number of Times ' + args.key + ' Used')
-ax.set_ylabel('Count')
-ax.set_xlabel('Country')
+ax.set_ylabel('Counts')
+ax.set_xlabel('Countries')
 
 # save the plot to a file
-plt.savefig('Chart 12345 of Country: ' + args.key + '.png')
+plt.savefig('Chart 123456 of Country: ' + args.key + '.png')
 
 '''
 if args.input_path == 'reduced.country':
