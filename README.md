@@ -1,9 +1,9 @@
 # Coronavirus twitter analysis
 
-![alt text](./Chart of Languages: #코로나바이러스.png)
-![alt text](./Chart of Languages: #coronavirus.png)
-![alt text](./Chart of Countries: #코로나바이러스.png)
-![alt text](./Chart of Countries: #coronavirus.png)
+![Chart of Countries](코로나바이러스.png)
+![Chart of Languages](coronavirus.png)
+![Chart of Countries](코로나바이러스.png)
+![Chart of Languages](coronavirus.png)
 
 You will scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
 
