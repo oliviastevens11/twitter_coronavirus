@@ -11,6 +11,7 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
+import matplotlib.pyplot as plt
 
 # load each of the input paths
 total = defaultdict(lambda: Counter())
@@ -20,32 +21,19 @@ for path in args.input_paths:
         for k in tmp:
             total[k] += tmp[k]
 
-# write the output path
+dataset = {}
+for hashtag, counter in total.items():
+    counts = [0]*365 # initialize count for each day of the year
+    for day, count in counter.items():
+        counts[day-1] = count
+    dataset[hashtag] = counts
+
+for hashtag, counts in dataset.items():
+    plt.plot(range(1,366), counts, label=hashtag)
+
+plt.xlabel('Day of the year')
+plt.ylabel('Number of tweets')
+plt.savefig('Line Plot')
+
 with open(args.output_path,'w') as f:
     f.write(json.dumps(total))
-
-# normalize the counts by the total values
-if args.percent:
-    for k in counts[args.key]:
-        counts[args.key][k] /= counts['_all'][k]
-
-# print the count values
-items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
-for k,v in items:
-    print(k,':',v)
-
-plt.figure(10,6)
-
-#plot the line graphs
-for i, hashtag in enumerate(args.hashtags):
-    tweet_counts = []
-    for day in range(1, 366):
-        tweet_counts.append(total[hashtag][str(day)])
-    plt.plot(range(1, 366), tweet_counts, label=hashtag)
-
-plt.xlabel('Day of Year')
-plt.ylabel('Number of Tweets')
-plt.title('Tweets by Hashtag')
-plt.legend()
-plt.savefig(args.output_path, format = 'png')
-

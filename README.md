@@ -1,5 +1,9 @@
 # Coronavirus twitter analysis
 
+<img src='Chart of Countries: #coronavirus.png' width=100% />
+<img src='Chart of Countries: #코로나바이러스.png' width=100% />
+<img src='Chart of Languages: #coronavirus.png' width=100% />
+<img src='Chart of Languages: #코로나바이러스.png' width=100% />
 You will scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
 
 **Learning Objectives:**
