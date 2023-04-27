@@ -8,9 +8,12 @@ Overall, this project taught me how to deal with large datasets and has potentia
 
 Graph of Top 10 Countries that used #coronavirus
 ![alt text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/Chart%20of%20Countries:%20%23coronavirus.png)
+
 Graph of Top 10 Countries that used #코로나바이러스
 ![alt text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/Chart%20of%20Countries:%20%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4.png)
+
 Graph of Top 10 Langauges that used #coronavirus  
 ![alt text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/Chart%20of%20Languages:%20%23coronavirus.png)
+
 Graph of Top 10 Langauges that used #코로나바이러스
 ![alt text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/Chart%20of%20Languages:%20%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4.png)
