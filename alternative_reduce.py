@@ -40,9 +40,10 @@ for k in keys:
     x_axis = list(dataset.keys())
     y_axis = [dataset[doy][k] for doy in x_axis]
     x_axis = [doy.date() for doy in x_axis]
+    x_axis, y_axis = zip(*sorted(zip(x_axis, y_axis)))
     plt.plot(x_axis, y_axis)
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('bjbkcovid_lololol.png')
+plt.savefig('bjbkcovid_lololol_ please_work.png')
