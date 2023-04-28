@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description='Generate line plot for hashtags')
 parser.add_argument('--key',required=True)
 args = parser.parse_args()
 
-files_input = glob.glob('outputs/geoTwitter20*.lang')
+files_input = glob.glob('outputs/geoTwitter20*.country')
 dataset = {}
 
 # load each of the input paths
@@ -29,22 +29,21 @@ for path in files_input:
                     dataset[doy] = defaultdict(int)
                 dataset[doy][key] += sum(tmp[key].values())
 
+dataset = dict(sorted(dataset.items()))
 for doy, tmp in dataset.items():
     keys = set()
     keys.update(tmp.keys())
     keys = list(keys)
 
-dataset = dict(sorted(dataset.items()))
 for k in keys:
     x_axis = list(dataset.keys())
     y_axis = [dataset[doy][k] for doy in x_axis]
     x_axis = [doy.date() for doy in x_axis]
-    print(x_axis)
     plt.plot(x_axis,y_axis,label=args.key)
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('____line_graph_.png')
+plt.savefig('__line__graph__.png')
 
 plt.show()
