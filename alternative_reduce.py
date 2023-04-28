@@ -15,11 +15,17 @@ import matplotlib.pyplot as plt
 
 # load each of the input paths
 total = defaultdict(lambda: Counter())
+for root, dirs, files in os.walk("inputs"):
+    for file in files:
+        if file.endswith(".json"):
+            input_paths.append(os.path.join(root, file))
+'''
 for path in args.input_paths:
     with open(path) as f:
         tmp = json.load(f)
         for k in tmp:
             total[k] += tmp[k]
+'''
 
 dataset = {}
 for hashtag, counter in total.items():
@@ -33,7 +39,7 @@ for hashtag, counts in dataset.items():
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
-plt.savefig('Line Plot')
+plt.savefig('Line Plot.png')
 
 with open(args.output_path,'w') as f:
     f.write(json.dumps(total))
