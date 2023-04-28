@@ -46,4 +46,4 @@ for k in keys:
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('bjbkcovid_lololol_ please_work.png')
+plt.savefig('line_plot_hastags.png')
