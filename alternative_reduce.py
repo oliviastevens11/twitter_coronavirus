@@ -29,58 +29,20 @@ for path in files_input:
                     dataset[doy] = defaultdict(int)
                 dataset[doy][key] += sum(tmp[key].values())
 
+for doy, tmp in dataset.items():
+    keys = set()
+    keys.update(tmp.keys())
+    keys = list(keys)
 
 dataset = dict(sorted(dataset.items()))
-print(dataset)
-for k in args.key:
+for k in keys:
     x = list(dataset.keys())
-    y = [dataset[doy][k] for date in x]
+    y = [dataset[doy][k] for doy in x]
+    print(y)
     plt.plot(x,y,label=args.key)
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('line_graph.png')
+plt.savefig('line_graph_.png')
 plt.show()
-'''
-# command line args
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument('--input_paths',nargs='+',required=True)
-parser.add_argument('--output_path',required=True)
-args = parser.parse_args()
-
-input_paths = glob.glob("outputs/*.json")
-print(input_paths)
-# imports
-import os
-import json
-from collections import Counter,defaultdict
-import matplotlib.pyplot as plt
-
-# load each of the input paths
-total = defaultdict(lambda: Counter())
-for path in args.input_paths:
-    with open(path) as f:
-        tmp = json.load(f)
-        for k in tmp:
-            total[k] += tmp[k]
-
-print("total=", total)
-dataset = {}
-for hashtag, counter in total.items():
-    counts = [0]*365 # initialize count for each day of the year
-    for day, count in counter.items():
-        counts[day-1] = count
-    dataset[hashtag] = counts
-print(dataset)
-for hashtag, counts in dataset.items():
-    plt.plot(range(1,366), counts, label=hashtag)
-
-plt.xlabel('Day of the year')
-plt.ylabel('Number of tweets')
-plt.savefig('Line Plot.png')
-
-with open(args.output_path,'w') as f:
-    f.write(json.dumps(total))
-'''
