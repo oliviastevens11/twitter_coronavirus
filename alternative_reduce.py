@@ -36,13 +36,12 @@ for doy, tmp in dataset.items():
 
 dataset = dict(sorted(dataset.items()))
 for k in keys:
-    x = list(dataset.keys())
-    y = [dataset[doy][k] for doy in x]
-    print(y)
-    plt.plot(x,y,label=args.key)
+    x_axis = list(dataset.keys())
+    y_axis = [dataset[doy][k] for doy in x_axis]
+    x_axis = [doy.date() for doy in x_axis]
+    plt.plot(x_axis,y_axis,label=args.key)
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('line_graph_.png')
-plt.show()
+plt.savefig('_line_graph_.png')
