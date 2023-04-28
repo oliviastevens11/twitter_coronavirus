@@ -29,25 +29,11 @@ for path in files_input:
                     dataset[doy] = defaultdict(int)
                 dataset[doy][key] += sum(tmp[key].values())
 
-x_axis = []
-y_axis = []
 dataset = dict(sorted(dataset.items()))
-
-for date, data in dataset.items():
-    num_tweets = sum(data.values())
-    if num_tweets > 0:
-        x_axis.append(date)
-        y_axis.append(num_tweets)
-        x_axis = [doy.date() for date in x_axis]
-print(x_axis)
-print(y_axis)
-plt.plot(x_axis, y_axis)
-
-plt.xlabel('Day of the year')
-plt.ylabel('Number of tweets')
-plt.legend()
-plt.savefig('_please_work_lol__.png')
-''' 
+keys = set()
+for doy, tmp in dataset.items():
+    keys.update(tmp.keys())
+    
 keys = list(keys)
 
 for k in keys:
@@ -58,17 +44,8 @@ for k in keys:
     print('x-axis=',x_axis)
     print('y-axis=', y_axis)
     plt.plot(x_axis, y_axis)
-x_axis = list(dataset.keys())
-x_axis = [doy.date() for date in x_axis]
-keys = list(dataset[x_axis[0]].keys()) 
 
-for k in keys:
-    y_axis = [dataset[doy][k] for doy in x_axis]
-    plt.plot(x_axis, y_axis, label=k)
-
-print(y_axis)
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('_please_work_lol.png')
-'''
+plt.savefig('covid_lollol.png')
