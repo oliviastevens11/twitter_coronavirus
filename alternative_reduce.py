@@ -37,18 +37,15 @@ for doy, tmp in dataset.items():
 keys = list(keys)
 
 for k in keys:
-    print(k)
     x_axis = list(dataset.keys())
-    y_axis = [dataset[doy][k] for date in x_axis]
-    x_axis = [date.date() for dat in x_axis]
-    print(x_axis)
+    y_axis = [dataset[doy][k] for doy in x_axis]
+    x_axis = [doy.date() for date in x_axis]
+    x_axis = [doy.strftime("%m/%d/%Y") for doy in x_axis]
+    print('x-axis=',x_axis)
+    print('y-axis=', y_axis)
     plt.plot(x_axis, y_axis)
-
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
-
 plt.legend()
-plt.savefig('covid_lol.png')
-
-plt.show()
+plt.savefig('covid_please_work_lol.png')
