@@ -39,9 +39,12 @@ for k in keys:
     x_axis = list(dataset.keys())
     y_axis = [dataset[doy][k] for doy in x_axis]
     x_axis = [doy.date() for doy in x_axis]
+    print(x_axis)
     plt.plot(x_axis,y_axis,label=args.key)
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('_line_graph_.png')
+plt.savefig('__line_graph_.png')
+
+plt.show()
