@@ -30,22 +30,23 @@ for path in files_input:
                 dataset[doy][key] += sum(tmp[key].values())
 
 dataset = dict(sorted(dataset.items()))
+keys = set()
 for doy, tmp in dataset.items():
-    keys = set()
     keys.update(tmp.keys())
     
 keys = list(keys)
 
 for k in keys:
+    print(k)
     x_axis = list(dataset.keys())
     y_axis = [dataset[doy][k] for doy in x_axis]
     x_axis = [doy.date() for doy in x_axis]
-    plt.plot(x_axis,y_axis,label=k)
+    plt.plot(x_axis, y_axis, label=k)
 
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('__line__graph___.png')
+plt.savefig('_______line__graph___.png')
 
 plt.show()
