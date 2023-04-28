@@ -20,6 +20,6 @@ Overall, this project taught me how to handle and visualize large datasets. As w
 # Graph of Top 10 Langauges that used #코로나바이러스
 ![alt text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/Chart%20of%20Top%2010%20Languages:%20%23%EC%BD%94%EB%A1%9C%EB%82%98%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4.png)
 
-# Line Plot of the Use of Two Hashtags throughout 2020: "#virus" and "flu"
+# Line Plot of the Use of Two Hashtags throughout 2020: "#virus" and "#flu"
 This can be ran for any of the hashtags. I choose virus and flu, as I believe they would have so similarities in their usage. 
 ![alt_text](https://github.com/oliviastevens11/twitter_coronavirus/blob/master/line_plot_hastag.png)
