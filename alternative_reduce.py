@@ -40,13 +40,15 @@ for k in keys:
     print(k)
     x_axis = list(dataset.keys())
     y_axis = [dataset[doy][k] for date in x_axis]
-    x_axis = [doy.date() for dat in x_axis]
+    x_axis = [date.date() for dat in x_axis]
     print(x_axis)
     plt.plot(x_axis, y_axis)
 
 
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
-plt.savefig('covid.png')
+
+plt.legend()
+plt.savefig('covid_lol.png')
 
 plt.show()
