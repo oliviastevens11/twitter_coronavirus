@@ -45,6 +45,6 @@ for k in keys:
 plt.xlabel('Day of the year')
 plt.ylabel('Number of tweets')
 plt.legend()
-plt.savefig('__line_graph_.png')
+plt.savefig('____line_graph_.png')
 
 plt.show()
